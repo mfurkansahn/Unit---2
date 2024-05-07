@@ -12,6 +12,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     float spawnPosZ = 20;
 
+    //Bonus-Feature-Medium
+    [SerializeField]
+    float sideSpawnX = 22;
+    [SerializeField]
+    float sideSpawnZ = 10;
+    //
+
     [SerializeField]
     float startDelay = 2;
     [SerializeField]
@@ -21,6 +28,10 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
+        //Bonus Feature - Medium
+        InvokeRepeating("SpawnSideLeftRandomAnimal", startDelay, spawnInterval);
+        InvokeRepeating("SpawnSideRightRandomAnimal", startDelay, spawnInterval);
+        //
     }
 
     // Update is called once per frame
@@ -36,4 +47,22 @@ public class SpawnManager : MonoBehaviour
 
         Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
     }
+
+    //Bonus Feature - Medium
+    void SpawnSideLeftRandomAnimal()
+    {
+        int animalIndex = Random.Range(0, animalPrefabs.Length);
+        Vector3 spawnPos = new Vector3(-sideSpawnX, 0, Random.Range(sideSpawnZ + 5, sideSpawnZ - 5));
+        Vector3 rotation = new Vector3(0, 90, 0);
+        Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(rotation));
+    }
+
+    void SpawnSideRightRandomAnimal()
+    {
+        int animalIndex = Random.Range(0, animalPrefabs.Length);
+        Vector3 spawnPos = new Vector3(sideSpawnX, 0, Random.Range(sideSpawnZ + 5, sideSpawnZ - 5));
+        Vector3 rotation = new Vector3(0, -90, 0);
+        Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(rotation));
+    }
+    //
 }

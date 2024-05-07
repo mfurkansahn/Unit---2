@@ -18,7 +18,16 @@ public class DetectCollisions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(this.gameObject);
-        Destroy(other.gameObject);
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player Get Hit, Game Over");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+            Destroy(other.gameObject);
+        }
+        
     }
 }

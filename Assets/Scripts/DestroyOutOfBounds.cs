@@ -10,6 +10,11 @@ public class DestroyOutOfBounds : MonoBehaviour
     [SerializeField]
     float lowerBound = -5;
 
+    //Bonus Feature - Medium
+    [SerializeField]
+    float sideBound = 28;
+    //
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +28,24 @@ public class DestroyOutOfBounds : MonoBehaviour
         if (transform.position.z > topBound)
         {
             Destroy(gameObject);
-        } else if(transform.position.z < lowerBound)
+        }
+        else if (transform.position.z < lowerBound)
         {
-            Debug.Log("Game Over");
+            //Debug.Log("Game Over Bound");
             Destroy(gameObject);
         }
+
+        //Bonus Feature - Medium
+        else if (transform.position.x < -sideBound)
+        {
+            //Debug.Log("GameOver Left");
+            Destroy(gameObject);  
+        }
+        else if (transform.position.x > sideBound)
+        {
+            //Debug.Log("GameOver Right");
+            Destroy(gameObject);
+        }
+        //
     }
 }
