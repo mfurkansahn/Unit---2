@@ -746,6 +746,10 @@ MonoBehaviour:
   - {fileID: 3581337814112183199, guid: 71f34668d5f86f5409248ed8ee91e093, type: 3}
   - {fileID: 4566953428639748352, guid: 4eaf3405211230b4d95a52f0cabd8422, type: 3}
   - {fileID: 3552385376811931901, guid: 65f9bf5f3eec7c740a53b2b15cdafdc3, type: 3}
+  sideAnimals:
+  - {fileID: 2316340901014180105, guid: 2f7fb5a0e32e557418db463be6806e9b, type: 3}
+  - {fileID: 393382388861156863, guid: c38fc9d8034766c469086eaa8c331844, type: 3}
+  - {fileID: 7074591420009913314, guid: b5f01d200dce4f64182713ff87d6587e, type: 3}
   spawnPosX: 10
   spawnPosZ: 20
   sideSpawnX: 22

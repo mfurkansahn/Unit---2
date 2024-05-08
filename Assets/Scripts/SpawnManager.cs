@@ -7,6 +7,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     GameObject[] animalPrefabs;
 
+    //Bonus Feature - Medium Extra
+    [SerializeField]
+    GameObject[] sideAnimals;
+    //
+
     [SerializeField]
     float spawnPosX = 10;
     [SerializeField]
@@ -51,18 +56,18 @@ public class SpawnManager : MonoBehaviour
     //Bonus Feature - Medium
     void SpawnSideLeftRandomAnimal()
     {
-        int animalIndex = Random.Range(0, animalPrefabs.Length);
+        int animalFarmIndex = Random.Range(0, sideAnimals.Length);
         Vector3 spawnPos = new Vector3(-sideSpawnX, 0, Random.Range(sideSpawnZ + 5, sideSpawnZ - 5));
         Vector3 rotation = new Vector3(0, 90, 0);
-        Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(rotation));
+        Instantiate(sideAnimals[animalFarmIndex], spawnPos, Quaternion.Euler(rotation));
     }
 
     void SpawnSideRightRandomAnimal()
     {
-        int animalIndex = Random.Range(0, animalPrefabs.Length);
+        int animalFarmIndex = Random.Range(0, sideAnimals.Length);
         Vector3 spawnPos = new Vector3(sideSpawnX, 0, Random.Range(sideSpawnZ + 5, sideSpawnZ - 5));
         Vector3 rotation = new Vector3(0, -90, 0);
-        Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(rotation));
+        Instantiate(sideAnimals[animalFarmIndex], spawnPos, Quaternion.Euler(rotation));
     }
     //
 }
