@@ -15,10 +15,16 @@ public class DestroyOutOfBounds : MonoBehaviour
     float sideBound = 28;
     //
 
+    //Bonus Feature - Hard
+    private GameManager gameManager;
+    //
+
     // Start is called before the first frame update
     void Start()
     {
-
+        //Bonus Feature - Hard
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //
     }
 
     // Update is called once per frame
@@ -32,6 +38,11 @@ public class DestroyOutOfBounds : MonoBehaviour
         else if (transform.position.z < lowerBound)
         {
             //Debug.Log("Game Over Bound");
+
+            //Bonus Feature - Hard
+            gameManager.AddLives(-1);
+            // 
+
             Destroy(gameObject);
         }
 
@@ -39,12 +50,22 @@ public class DestroyOutOfBounds : MonoBehaviour
         else if (transform.position.x < -sideBound)
         {
             //Debug.Log("GameOver Left");
-            Destroy(gameObject);  
+
+            //Bonus Feature - Hard
+            gameManager.AddLives(-1);
+            // 
+
+            Destroy(gameObject);
         }
         else if (transform.position.x > sideBound)
         {
             //Debug.Log("GameOver Right");
-            Destroy(gameObject);
+
+            //Bonus Feature - Hard
+            gameManager.AddLives(-1);
+            //
+
+            Destroy(gameObject); 
         }
         //
     }
